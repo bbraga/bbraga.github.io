@@ -103,6 +103,8 @@ GEM
       commonmarker (~> 0.17.6)
       jekyll-commonmark (~> 1)
       rouge (~> 2)
+    jekyll-data (1.0.0)
+      jekyll (~> 3.3)
     jekyll-default-layout (0.1.4)
       jekyll (~> 3.0)
     jekyll-feed (0.9.2)
@@ -194,8 +196,15 @@ GEM
     mini_portile2 (2.3.0)
     minima (2.1.1)
       jekyll (~> 3.3)
+    minimal-mistakes-jekyll (4.9.0)
+      jekyll (~> 3.6)
+      jekyll-data (~> 1.0)
+      jekyll-feed (~> 0.9.2)
+      jekyll-gist (~> 1.4)
+      jekyll-paginate (~> 1.1)
+      jekyll-sitemap (~> 1.1)
+      jemoji (~> 0.8)
     minitest (5.11.1)
-    multi_json (1.12.2)
     multipart-post (2.0.0)
     net-dns (0.8.0)
     nokogiri (1.8.1)
@@ -205,8 +214,6 @@ GEM
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
-    pygments.rb (1.2.1)
-      multi_json (>= 1.0.0)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -238,7 +245,8 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-analytics
-  pygments.rb
+  jekyll-watch
+  minimal-mistakes-jekyll
 
 BUNDLED WITH
    1.16.1
