@@ -33,18 +33,10 @@
   header { padding: 64px 0 72px; }
   .icon { width: 88px; height: 88px; border-radius: 20px; margin-bottom: 28px; box-shadow: 0 8px 32px rgba(0,153,255,.18); }
 
-  /* score ring */
-  .hero { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
-  .ring { position: relative; width: 200px; height: 200px; flex: 0 0 auto; }
-  .ring svg { transform: rotate(-90deg); }
-  .ring .num {
-    position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-  }
-  .ring .num b { font-size: 3.4rem; font-weight: 700; letter-spacing: -0.03em; }
-  .ring .num span { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+  /* hero: phone screenshot + copy */
+  .hero { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+  .phone-shot { flex: 0 0 auto; width: 240px; border-radius: 28px; border: 1px solid var(--line); box-shadow: 0 24px 64px rgba(13,27,42,.16); }
   .hero-copy { flex: 1; min-width: 260px; }
-
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
   th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); }
   th { color: var(--muted); font-weight: 500; font-size: .85rem; }
@@ -82,21 +74,7 @@
 
 <section class="wrap">
   <div class="hero">
-    <div class="ring" role="img" aria-label="Recovery score ring showing 87 out of 100">
-      <svg width="200" height="200" viewBox="0 0 200 200">
-        <circle cx="100" cy="100" r="86" fill="none" stroke="#e3e9ef" stroke-width="14"/>
-        <circle cx="100" cy="100" r="86" fill="none" stroke="url(#g)" stroke-width="14"
-                stroke-linecap="round" stroke-dasharray="540.35 471.24"
-                pathLength="540.35"/>
-        <defs>
-          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00d4aa"/>
-            <stop offset="100%" stop-color="#0099ff"/>
-          </linearGradient>
-        </defs>
-      </svg>
-      <div class="num"><b>87</b><span>Recovery</span></div>
-    </div>
+    <img class="phone-shot" src="phone-dashboard.png" alt="VitalPulse dashboard on iPhone: recovery score 70 of 100 with HRV, sleep, and resting heart rate" width="240" height="521">
     <div class="hero-copy">
       <p>Wake up. Look at your wrist or your phone. Know how recovered you are before the day starts.</p>
       <p>The score is weighted from three signals your body already records:</p>
@@ -111,7 +89,7 @@
 
 <section class="wrap">
   <h2>Your baseline, not the average</h2>
-  <p>Most apps compare you to a population. VitalPulse computes your baseline from your own trailing 30 days of data. A score of 87 means <em>you</em> are recovered relative to <em>you</em>.</p>
+  <p>Most apps compare you to a population. VitalPulse computes your baseline from your own trailing 30 days of data. A score of 70 means <em>you</em> are recovered relative to <em>you</em>.</p>
   <p>Bad samples get filtered before they can skew the baseline: unrealistic readings and statistical outliers are excluded. In the live test dataset, 23 of 332 HRV samples were filtered out.</p>
   <p>On first run it backfills 30 days of historical scores, so the trend chart is full from day one.</p>
 </section>
