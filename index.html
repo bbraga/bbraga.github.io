@@ -1,13 +1,157 @@
----
-layout: default
-title: Blog Posts
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bruno Braga</title>
+<meta name="description" content="Personal hub of Bruno Braga. Two platforms built and run solo, a health app on my own wrist, and the agents that write most of my code.">
+<style>
+  :root {
+    --teal: #00d4aa;
+    --blue: #0099ff;
+    --ink: #0d1b2a;
+    --paper: #fafbfc;
+    --muted: #5a6b7d;
+    --line: #e3e9ef;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  h1 { font-size: 2.4rem; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; }
+  h2 { font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 20px; }
+  h3 { font-size: 1.1rem; margin-bottom: 10px; }
+  p { margin-bottom: 16px; }
+  .lead { font-size: 1.15rem; color: var(--muted); }
 
-<div id="home">
-  <h2><i class="fa fa-bookmark"></i> Blog Posts</h2>
-  <ul id="blog-posts" class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }} &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+  header { padding: 80px 0 72px; }
+
+  .project { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .project:last-child { border-bottom: none; padding-bottom: 0; }
+  .status {
+    display: inline-block; padding: 2px 10px; border-radius: 999px;
+    font-size: .8rem; font-weight: 600; color: var(--blue);
+    background: rgba(0,153,255,.09); margin-left: 10px; vertical-align: middle;
+  }
+  .status.past { color: var(--muted); background: rgba(90,107,125,.09); }
+
+  .receipts {
+    display: flex; flex-wrap: wrap; gap: 28px; margin: 20px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .receipts div b { display: block; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+  .receipts div span { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+  ul { list-style: none; }
+  ul li { padding: 8px 0 8px 24px; position: relative; }
+  ul li::before {
+    content: ""; position: absolute; left: 4px; top: 1.05em;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--blue));
+  }
+
+  a { color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(0,153,255,.3); }
+  a:hover { border-bottom-color: var(--blue); }
+  .more { font-weight: 600; }
+
+  footer { padding: 48px 0 80px; color: var(--muted); font-size: .9rem; }
+  .vp-data { display: none; }
+  @media (max-width: 560px) { h1 { font-size: 1.9rem; } }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>Bruno Braga</h1>
+  <p class="lead">I build software end to end, alone, with agents writing most of the code.</p>
+  <p class="lead">Two platforms. One live since 2019. The other, partner management in your CRM, 2015–2018.</p>
+  <p class="lead">Plus a health app on my own wrist. Not on the App Store.</p>
+</header>
+
+<section class="wrap">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>bleak.io<span class="status">live</span></h3>
+    <p>Multi-tenant Rails platform for objectives and key results. Live today.</p>
+    <p>First commit December 2019. In continuous development since. Agents write most of its code, run on my own machines, open weights by default. When a task needs more than my machines can give, I rent it, for that task, nothing more.</p>
+    <p>How the whole setup runs: <a href="https://bleak.io/agents">bleak.io/agents</a></p>
+    <div class="receipts">
+      <div><b>1,265</b><span>commits</span></div>
+      <div><b>94</b><span>merged pull requests</span></div>
+      <div><b>1,315</b><span>test runs</span></div>
+      <div><b>0</b><span>failures</span></div>
+    </div>
+  </div>
+
+  <div class="project">
+    <h3>PartnerBeam<span class="status past">2015–2018</span></h3>
+    <p>Partner management inside your CRM. One record shared between vendor and partner, no double entry. One shared core, two portals, a published SugarCRM integration. Ran it solo: product, code, infra, support.</p>
+  </div>
+
+  <div class="project">
+    <h3>VitalPulse<span class="status">personal app</span></h3>
+    <p>Personal iOS and watchOS app. One recovery score each morning, computed from my own heart rate variability, sleep, and resting heart rate. Personal baseline, not a population average. Not on the App Store.</p>
+    <p class="more"><a href="/vitalpulse/">bsq.io/vitalpulse</a></p>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>Agents</h2>
+  <p>Most of my code comes out of a harness, not a keyboard.</p>
+  <ul>
+    <li>Write the spec, review it thoroughly, the agent implements strictly to spec, gate, merge.</li>
+    <li>The gate is the spec, not diff-skimming.</li>
   </ul>
-</div>
+  <p>The full write-up, with receipts from a live codebase: <a href="https://bleak.io/agents">bleak.io/agents</a></p>
+</section>
+
+<footer class="wrap">
+  <p>bsq.io is the hub.</p>
+</footer>
+
+<script type="application/json" id="bsq-hub-data">
+{
+  "site": "bsq.io",
+  "owner": "Bruno Braga",
+  "updated": "2026-10-02",
+  "positioning": "agents write most of my code, open weights by default, on my machines",
+  "projects": [
+    {
+      "name": "bleak.io",
+      "kind": "SaaS platform",
+      "status": "live",
+      "what": "multi-tenant OKR platform",
+      "first_commit": "2019-12",
+      "url": "https://bleak.io",
+      "harness_writeup": "https://bleak.io/agents",
+      "receipts": {"commits": 1265, "merged_prs": 94, "test_runs": 1315, "assertions": 3945, "failures": 0, "as_of": "2026-10-01"}
+    },
+    {
+      "name": "PartnerBeam",
+      "kind": "SaaS product",
+      "status": "2015–2018",
+      "what": "partner management inside your CRM",
+      "facts": ["one shared core, two portals", "published SugarCRM integration", "ran solo"]
+    },
+    {
+      "name": "VitalPulse",
+      "kind": "personal app",
+      "status": "live (personal use)",
+      "what": "recovery score for iOS and watchOS",
+      "url": "https://bsq.io/vitalpulse",
+      "receipts": {"first_commit": "2025-10", "commits": 92, "test_suites_passing": "35/35", "verified_on": "2026-10-02"}
+    }
+  ],
+  "agents": {"writeup": "https://bleak.io/agents", "default": "open weights on my machines", "gate": "spec review"}
+}
+</script>
+
+</body>
+</html>
